@@ -1,0 +1,35 @@
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import Main from './components/Main';
+import Navbar from './components/Navbar';
+import Home from './components/pages/Home';
+import Products from './components/pages/Products';
+import Services from './components/pages/Services';
+import SignUp from './components/pages/SignUp';
+
+function App() {
+  return (
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/main' element={<Main />} />
+        </Routes>
+      </Router>
+    </>
+  );
+}
+
+export default App;
+  const sounds = [
+    { name: 'bubble-pop', value: 'bubble-pop-ding-betacut.mp3' },
+    { name: 'cartoon-game', value: 'cartoon-game-upgrade-ni-sound.mp3' },
+    { name: 'level-complete', value: 'level-complete-mobile-game-app-locran-1-00-06.mp3' },
+    { name: 'cuckoo', value: 'cuckoo-9-94258.mp3' },
+  ];
+
