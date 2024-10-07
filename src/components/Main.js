@@ -144,7 +144,7 @@ function Main() {
       if (parashaEvent) {
         setParashatHashavua(parashaEvent.hebrew);
       } else{
-        setParashatHashavua(shabbatTimes[5].hebrew);
+        setParashatHashavua(shabbatTimes[2].hebrew);
       }
     }
   }, [shabbatTimes]); // Runs only when shabbatTimes changes

@@ -1,166 +1,159 @@
 /* Main container */
 .shabbat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-image: url('/public/backgrounds/pinkswitch.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    position: relative; /* For positioning the bottom menu */
-  }
-  
-  /* Text and image sections */
-  .shabbat-text {
-    height: 260px;
-    width: 65%;
-    order: 2;
-  }
-  
-  .shabbat-image, .parashat-hashavua {
-    height: 260px;
-    order: 1;
-  }
-  
-  .shabbat-text, .shabbat-image, .parashat-hashavua {
-    margin: 10px;
-    text-align: center;
-  }
-  .parashat-hashavua p{
-    margin-top: 61px;
-    font-size: 1.5em;
-  }
-  .shabbat-times p {
-    font-size: 2.5rem;
-    color: black;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-image: url('/public/backgrounds/pinkswitch.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  position: relative; /* For positioning the bottom menu */
+}
+
+/* Text and image sections */
+.shabbat-text {
+  height: 260px;
+  width: 90%; /* Increase width on mobile */
+  order: 2;
+}
+
+.shabbat-image, .parashat-hashavua {
+  height: 260px;
+  order: 1;
+  width: 90%; /* Increase width on mobile */
+}
+
+.shabbat-text, .shabbat-image, .parashat-hashavua {
+  margin: 10px;
+  text-align: center;
+}
+
+.parashat-hashavua p {
+  margin-top: 30px; /* Reduce margin for mobile */
+  font-size: 1.2em; /* Adjust font size */
+}
+
+.shabbat-times p {
+  font-size: 2rem; /* Adjust font size */
+  color: black;
+}
+
+.shabbat-prayer p {
+  font-size: 1.5rem; /* Adjust font size for mobile */
+  color: black;
+  margin-top: 60px; /* Reduce top margin for mobile */
+}
+
+.shabbat-image img {
+  width: 130px; /* Adjust image size */
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.shabbat-image p {
+  color: black;
+  font-size: 1.5rem; /* Adjust font size */
+}
+
+/* Bottom menu */
+.bottom-menu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #edc4cc;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.menu-btn {
+  font-size: 1.2rem; /* Adjust font size for mobile */
+  color: black;
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #333;
+}
+
+.shabbat-image, .parashat-hashavua {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
   .shabbat-prayer p {
-    font-size: 1.9rem;
-    color: black;
-    margin-top: 120px;
+      margin-top: 20px; /* Reduce margin-top for mobile */
   }
-  
-  .shabbat-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .shabbat-image p {
-    color: black;
-    font-size: 1.9rem;
-  }
-  
-  /* Bottom menu */
-  .bottom-menu {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #edc4cc;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-  }
-  
-  .menu-btn {
-    font-size: 1.5rem;
-    color: black;
-    background-color: transparent;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .menu-btn:hover {
-    background-color: #333;
-  }
-  
-  .shabbat-image, .parashat-hashavua {
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .shabbat-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .parashat-hashavua {
-    text-align: center;
-    color: black;
-  }
-  
-  .parashat-hashavua h3 {
-    font-size: 2rem;
-    color: black;
-  }
-  /* Desktop view adjustments */
-  @media (min-width: 768px) {
-    .shabbat-container {
+}
+
+/* Desktop view adjustments */
+@media (min-width: 768px) {
+  .shabbat-container {
       flex-direction: row;
-    }
-  
-    .shabbat-text {
+  }
+
+  .shabbat-text {
       flex: 1;
       width: 65%;
       align-items: flex-start;
-    }
-  
-    .shabbat-image, .parashat-hashavua {
-      flex: 1;
-      width: 35%;
-    }
-  
-    .shabbat-text p {
-      font-size: 1.5rem;
-    }
-  
-    .shabbat-prayer p {
-      font-size: 1.3rem;
-    }
-  
-    .shabbat-image img {
-      width: 200px;
-      height: 200px;
-    }
-  
-    .shabbat-image p {
-      font-size: 1.3rem;
-    }
   }
 
-  .alert-settings-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+  .shabbat-image, .parashat-hashavua {
+      flex: 1;
+      width: 35%;
   }
-  
-  .alert-settings-popup h2 {
-    margin-bottom: 10px;
+
+  .shabbat-text p {
+      font-size: 1.5rem;
   }
-  
-  .alert-settings-popup label {
-    display: block;
-    margin-bottom: 10px;
+
+  .shabbat-prayer p {
+      font-size: 1.3rem;
   }
-  
-  .alert-settings-popup button {
-    margin-right: 10px;
+
+  .shabbat-image img {
+      width: 200px;
+      height: 200px;
   }
-  
-  
+
+  .shabbat-image p {
+      font-size: 1.3rem;
+  }
+}
+
+/* Alert settings popup */
+.alert-settings-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.alert-settings-popup h2 {
+  margin-bottom: 10px;
+}
+
+.alert-settings-popup label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.alert-settings-popup button {
+  margin-right: 10px;
+}
