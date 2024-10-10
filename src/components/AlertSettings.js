@@ -87,8 +87,8 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
         </select>
       </label>
       <br></br>
-      <button onClick={handleSaveAndClose}>Save</button>
-      <button onClick={onClose}>Cancel</button>
+      <button onClick={handleSaveAndClose}>שמור</button>
+      <button onClick={onClose}>ביטול</button>
       </div>
     </div>
   );
