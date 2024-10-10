@@ -66,6 +66,7 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
 
   return (
     <div className="alert-settings-popup">
+      <div className='content'>
       <h2>הוספת התראה להדלקת נרות</h2>
       <label>
         זמן בדקות לפני  הדלקת נרות:
@@ -75,6 +76,7 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
           ))}
         </select>
       </label>
+      <br></br>
       <label>
         צליל התראה:
         <select value={selectedSound} onChange={handleSoundChange}>
@@ -84,8 +86,10 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
           ))}
         </select>
       </label>
+      <br></br>
       <button onClick={handleSaveAndClose}>Save</button>
       <button onClick={onClose}>Cancel</button>
+      </div>
     </div>
   );
 };
