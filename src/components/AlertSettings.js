@@ -24,25 +24,24 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
     const candleLightingDate = new Date(candleLightingTime);
     const alertDate = new Date(candleLightingDate.getTime() - alertTime * 60 * 1000); // Convert minutes to milliseconds
   
-    // Create an audio instance
-    const sound = new Audio(`/sounds/${selectedSound}`); 
-  
-    const timeoutId = setTimeout(() => {
-      // Play the sound
+    const sound = new Audio(`/sounds/${selectedSound}`); // Create an audio instance
+
+    // Set timeout to play sound at the correct alert time
+    const id = setTimeout(() => {
       sound.play().then(() => {
-        // Wait until sound finishes playing before showing the alert
+// Wait until sound finishes playing before showing the alert
         sound.onended = () => {
           alert(`More ${alertTime} minutes to light the candles!`);
         };
       }).catch((error) => {
         console.error("Error playing sound:", error);
-        alert(`More ${alertTime} minutes to light the candles!`); // Fallback if sound fails to play
+        alert(`More ${alertTime} minutes to light the candles!`);
       });
     }, alertDate - new Date());
-  
-    return () => clearTimeout(timeoutId);
+
+    // Store timeoutId
+    setTimeoutId(id);
   };
-  
 
   const handleSoundChange = (e) => {
     const sound = e.target.value;
@@ -55,11 +54,11 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
     onClose(); // Close the popup
   };
 
-  // Cleanup on unmount
+  // Cleanup on unmount or when timeoutId changes
   useEffect(() => {
     return () => {
       if (timeoutId) {
-        clearTimeout(timeoutId);
+        clearTimeout(timeoutId); // Clear timeout when component unmounts
       }
     };
   }, [timeoutId]);
@@ -70,7 +69,7 @@ const AlertSettings = ({ onClose, candleLightingTime }) => {
       <h2>הוספת התראה להדלקת נרות</h2>
       <label>
         זמן בדקות לפני  הדלקת נרות:
-        <select value={alertTime} onChange={(e) => setAlertTime(e.target.value)}>
+        <select value={alertTime} onChange={(e) => setAlertTime(Number(e.target.value))}>
           {[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60].map((time) => (
             <option key={time} value={time}>{time}</option>
           ))}
