@@ -134,7 +134,7 @@
     padding: 5px;
   }
 
-  .shabbat-text, .shabbat-image {
+  .shabbat-text, .shabbat-image, .parashat-hashavua  {
     width: 50%; /* Split screen in half */
   }
 
